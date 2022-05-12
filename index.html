@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300;400;600&display=swap');
+        :root {
+        --bs-body-font-family: 'Radio Canada', sans-serif;
+        --bs-body-color: #eef;
+        --bs-body-bg: #373737;
+        }
+        </style>
+
+        <title>Introducción al Desarrollo Front End con HTML, CSS y JavaScript</title>
+
+</head>
+
+<body>
+
+<header>
+               <div class="container">
+               <div class="row pt-5">
+               <div class="col-sm-10 col-md-8 col-lg-6 mx-auto">
+               <h1 class="display-4 text-center py-2">Sismos en Chile</h1>
+               <h2 class="fs-5 mb-5 text-center">Uno de los países más sismicos.</h3>
+               </div>
+               </div>
+               </div>
+
+</header>
+
+<main>
+
+  <div class="container py-5">
+      <div class="row">
+          <div class="col-md-6 mx-auto">
+              <p class="lead py-3">Para situarnos en contexto Chile con sus fallas potencialmente sismogénicas es uno de los más proclives a sufrir terremotos.</p>
+              <p>Partiendo desde norte a sur; podremos encontrar la falla de Atacama en el norte de Chile, la falla de San Ramón en la Región Metropolitana y Liquiñe-Ofqui, la gran falla del sur.</p>
+
+<div class="container py-5">
+              <img src="img/placas.jpg" alt="Placas Sudamericanas" class="w-75 mx-auto bg-light" />
+</div>
+
+              <p class="lead py-3">Estas fallas se dividen en tres tipos; normal, de desplazamiento de rumbo e inversa.</p>
+              <p>Las fallas normales son varios planos entre los que un bloque baja respecto al otro.</p>
+              <p>Las fallas de desplazamiento de rumbo tienen un movimiento general paralelo al rumbo de la superficie y los bloques se desplazan lateralmente uno respecto al otro.</p>
+              <p>Las fallas inversas provocan levantamiento del suelo, el bloque encima del plano de la falla sube con respecto al debajo del plano generando fuerzas compresivas.</p>
+          </div>
+
+          <div class="container">
+                  <div class="row">
+                  <div class="col-md-6 mx-auto">
+                  <h1 class="mt-5 text-center">Mayores terremotos en Chile</h1>
+
+                  <div id="secuencia" class="m-5"></div>
+                  </div>
+                  </div>
+                  </div>
+
+          <div class="col-md-6 mx-auto">
+              <p>Una falla dado sus movimientos puden generar daños sustancialmente a las edificaciones.</p>
+              <p>El rol de los geólogos es investigar la existencia de fallas geológicas recorriendo la superficie. Sin embargo, las evidencias de una falla con el tiempo y la erosión son borradas de la superficie haciendo este un trabajo difícil.</p>
+          </div>
+</div>
+</div>
+</div>
+
+</main>
+
+<footer class="bg-cierre">
+<div class="container">
+<div class="row py-3">
+<div class="col text-center"><small>Erik Fernández | 12 de mayo, 2022</small></div>
+</div>
+</div>
+</footer>
+
+</main>
+
+<aside>
+               <div class="container">
+               <div class="row py-5">
+               <div class="col-sm-10 col-md-8 col-lg-6 mx-auto small text-center">
+               <p> Fuentes: <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">Earthquake.usgs.gov</a>.</p>
+               </div>
+               </div>
+               </div>
+</aside>
+
+<footer>
+            <div class="container">
+            <div class="row">
+            <div class="col"><p class="text-muted mt-5 text-center small">Bootstrap v5.1 y Charts.js</p></div>
+            </div>
+            </div>
+</footer>
+
+<script ssrc="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+        async function todo() {
+        const consulta = await fetch("https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto5/TotalesNacionales.csv");
+        const data = await consulta.json();
+        console.log(data);
+
+        }
+        visualizacion().catch((error) => console.error(error));
+</script>
+
+<script>
+            var peliculas = [
+                { img: "img/1922.jpg", txt: "Magnitud de 8.5 (1922)" },
+                { img: "img/2010.jpg", txt: "Magnitud de 8.8 (2010)" },
+                { img: "img/1960.jpg", txt: "Magnitud de 9.5 (1960)" },
+            ];
+            peliculas.forEach(function (p, i) {
+                if (i % 2 == 0) {
+                    document.getElementById("secuencia").innerHTML +=
+                        '<figure class="row d-flex align-items-center"><img src="' +
+                        p.img +
+                        '" class="img-fluid col-12 col-md-6" /><figcaption class="col-12 col-md-6"><p class="small py-2 text-center text-md-start">' +
+                        p.txt +
+                        "</p></figcaption></figure>";
+                } else {
+                    document.getElementById("secuencia").innerHTML +=
+                        '<figure class="row d-flex align-items-center"><img src="' +
+                        p.img +
+                        '" class="img-fluid col-12 col-md-6 order-md-2" /><figcaption class="col-12 col-md-6 order-md-1"><p class="small py-2 text-center text-md-end">' +
+                        p.txt +
+                        "</p></figcaption></figure>";
+                }
+            });
+</script>
+
+<script> document.querySelectorAll("a").forEach((a) => a.classList.add("link-danger")); </script>
+
+</body>
+
+</html>
